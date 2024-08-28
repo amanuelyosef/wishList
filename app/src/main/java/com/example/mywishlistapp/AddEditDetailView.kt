@@ -64,7 +64,6 @@ fun AppEditDetailView(
             .wrapContentSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
-
         ) {
 
             Spacer(modifier = Modifier.height(10.dp))
@@ -93,7 +92,14 @@ fun AppEditDetailView(
                             )
                             snackMessage.value="Wish has been created"
                         }else{
-                            // TODO Update
+                            // Update
+                            viewModel.updateWish(
+                                Wish(
+                                    id=id,
+                                    title=viewModel.wishTitleState.trim(),
+                                    description = viewModel.wishDescriptionState.trim()
+                                )
+                            )
                         }
                     }else{
                         snackMessage.value="Enter value to the fields"
